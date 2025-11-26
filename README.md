@@ -4,7 +4,7 @@
 
 欢迎来到 Trae 的官方仓库。该项目通过 LLM（或内置技能）理解你的中文/英文描述，自动规划并执行安全的 Linux 命令，并把关键输出写入上下文历史，以便持续对话。
 
-> 想快速体验？参见 [`QUICKSTART.md`](QUICKSTART.md)。需要了解打包流程？参见 [`BUILD.md`](BUILD.md)。
+> 想快速体验？参见 [`QUICKSTART.md`](QUICKSTART.md)。需要了解打包流程？参见 [`BUILD.md`](BUILD.md)。Looking for English docs? Read [`README.en.md`](README.en.md)。
 
 ---
 
