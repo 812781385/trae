@@ -1,0 +1,32 @@
+Source: trae
+Section: utils
+Priority: optional
+Maintainer: Trae Team <trae@example.com>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all,
+               python3-setuptools,
+               python3-pip
+Standards-Version: 4.6.0
+Homepage: https://github.com/yourusername/trae
+Vcs-Browser: https://github.com/yourusername/trae
+Vcs-Git: https://github.com/yourusername/trae.git
+
+Package: trae
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         python3-requests,
+         python3-pip
+Recommends: python3-openai | python3-anthropic
+Description: 自然语言 Linux 命令执行工具
+ Trae 是一个强大的 Linux 命令行工具，允许您使用自然语言执行
+ Linux 命令。只需用自然语言描述您想要执行的操作，Trae 会理解
+ 您的意图，生成相应的 Linux 命令，并自动执行。
+ .
+ 特性：
+  - 使用大语言模型（LLM）理解自然语言查询
+  - 自动生成并执行 Linux 命令
+  - 内置危险命令检测，防止误操作
+  - 支持 OpenAI、Anthropic (Claude) 和本地模型（Ollama）
+

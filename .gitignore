@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Debian
+debian/trae/
+debian/files
+debian/*.substvars
+debian/*.log
+../trae_*.deb
+../trae_*.dsc
+../trae_*.tar.gz
+../trae_*.changes
+../trae_*.buildinfo
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# 环境
+.env
+.venv
+env/
+venv/
+ENV/
+
+# 配置
+.trae/config.json
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
+

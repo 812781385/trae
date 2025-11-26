@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=trae
+
+%:
+	dh $@ --with python3
+
+override_dh_auto_install:
+	# 使用标准的 Python 安装方式，但避免通过 make install 调用 pip install -e
+	# 这样可以避免 pkg_resources 的递归错误
+	# 使用 --install-lib 指定正确的 Python 包安装路径（Debian 标准路径）
+	# 注意：dh_auto_install 期望文件安装到 debian/tmp，然后 dh_install 会复制到 debian/trae
+	python3 setup.py install \
+		--root=$(CURDIR)/debian/tmp \
+		--prefix=/usr \
+		--install-lib=/usr/lib/python3/dist-packages \
+		--install-scripts=/usr/bin \
+		--single-version-externally-managed \
+		--record=/dev/null
+	# setup.py 的 entry_points 会自动创建 /usr/bin/trae
+	# 确保可执行文件有正确的权限
+	if [ -f debian/tmp/usr/bin/trae ]; then \
+		chmod +x debian/tmp/usr/bin/trae; \
+		sed -i.bak '1s|^#!.*python3|#!/usr/bin/python3|' debian/tmp/usr/bin/trae 2>/dev/null || true; \
+		rm -f debian/tmp/usr/bin/trae.bak; \
+	fi
+
+override_dh_install:
+	# 确保所有文件都被正确安装
+	dh_install || true
+	# 手动安装所有 Python 包文件（包括 __pycache__ 和 .egg-info）
+	mkdir -p debian/trae/usr/lib/python3/dist-packages
+	if [ -d debian/tmp/usr/lib/python3/dist-packages/trae ]; then \
+		cp -r debian/tmp/usr/lib/python3/dist-packages/trae debian/trae/usr/lib/python3/dist-packages/ || true; \
+	fi
+	# 复制 .egg-info 目录（匹配任何 Python 版本）
+	for egginfo in debian/tmp/usr/lib/python3/dist-packages/trae-0.1.0-py3*.egg-info; do \
+		if [ -d "$$egginfo" ]; then \
+			cp -r "$$egginfo" debian/trae/usr/lib/python3/dist-packages/ || true; \
+		fi; \
+	done
+	# 安装可执行文件
+	mkdir -p debian/trae/usr/bin
+	if [ -f debian/tmp/usr/bin/trae ]; then \
+		cp debian/tmp/usr/bin/trae debian/trae/usr/bin/ || true; \
+	fi
+

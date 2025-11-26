@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+
+# 设置可执行权限
+if [ -f /usr/bin/trae ]; then
+    chmod +x /usr/bin/trae
+fi
+
+# 创建配置目录
+if [ ! -d "$HOME/.trae" ]; then
+    mkdir -p "$HOME/.trae" 2>/dev/null || true
+fi
+
+# 提示用户设置 API 密钥
+echo ""
+echo "=========================================="
+echo "Trae 安装完成！"
+echo "=========================================="
+echo ""
+echo "请设置您的 LLM API 密钥："
+echo "  export TRAE_API_KEY='your-api-key-here'"
+echo ""
+echo "或者使用命令行参数："
+echo "  trae --api-key your-key '查询内存使用情况'"
+echo ""
+echo "更多信息请查看: man trae 或 trae --help"
+echo ""
+
+#DEBHELPER#
+

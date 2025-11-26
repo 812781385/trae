@@ -1,0 +1,9 @@
+trae (0.2.0) jammy; urgency=medium
+
+  * 初始版本发布
+  * 支持自然语言命令生成和执行
+  * 支持 OpenAI、Anthropic、Qwen 和本地模型
+  * 内置危险命令检测
+
+ -- Trae Team <812781385@qq.com>  Mon, 01 Jan 2024 12:00:00 +0800
+

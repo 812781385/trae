@@ -1,0 +1,68 @@
+.TH TRAE 1 "2024-01-01" "trae 0.1.0" "用户命令"
+.SH 名称
+trae \- 自然语言 Linux 命令执行工具
+.SH 简介
+.B trae
+[\fI选项\fR] \fI查询\fR...
+.SH 描述
+Trae 是一个强大的 Linux 命令行工具，允许您使用自然语言执行 Linux 命令。
+只需用自然语言描述您想要执行的操作，Trae 会理解您的意图，生成相应的
+Linux 命令，并自动执行。
+.SH 选项
+.TP
+.B \-\-dry\-run
+只显示生成的命令，不执行
+.TP
+.B \-\-api\-key \fI密钥\fR
+LLM API 密钥（也可通过环境变量 TRAE_API_KEY 设置）
+.TP
+.B \-\-model \fI模型\fR
+指定使用的 LLM 模型（默认从配置读取）
+.TP
+.B \-h, \-\-help
+显示帮助信息并退出
+.SH 环境变量
+.TP
+.B TRAE_API_KEY
+LLM API 密钥
+.TP
+.B TRAE_PROVIDER
+LLM 提供商（openai, anthropic, local）
+.TP
+.B TRAE_MODEL
+使用的 LLM 模型名称
+.SH 示例
+.TP
+查询内存使用情况：
+.B trae 帮我查询内存使用情况
+.TP
+显示文件列表：
+.B trae 显示当前目录的文件列表
+.TP
+查找文件：
+.B trae 查找所有 .log 文件
+.TP
+干运行模式：
+.B trae \-\-dry\-run "查询内存使用情况"
+.SH 配置文件
+配置文件位于 \fI~/.trae/config.json\fR，格式为 JSON：
+.RS
+.nf
+{
+  "api_key": "your-api-key-here",
+  "provider": "openai",
+  "model": "gpt-3.5-turbo"
+}
+.fi
+.RE
+.SH 安全
+Trae 内置了危险命令检测机制，会警告您可能危险的命令（如 rm -rf /、
+格式化磁盘等），并在执行前要求确认。
+.SH 作者
+Trae Team <trae@example.com>
+.SH 参见
+.BR bash (1),
+.BR sh (1)
+.SH 主页
+https://github.com/yourusername/trae
+
