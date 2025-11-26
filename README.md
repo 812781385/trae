@@ -153,8 +153,8 @@ trae "你刚才执行了什么命令"
 
 ```bash
 export TRAE_API_KEY="sk-xxx"
-export TRAE_PROVIDER="openai"            # openai / anthropic / qwen / dashscope / local
-export TRAE_MODEL="gpt-3.5-turbo"
+export TRAE_PROVIDER="qwen"            # openai / anthropic / qwen / dashscope / local
+export TRAE_MODEL="qwen3-max"
 export TRAE_CONTEXT_WINDOW="50"
 export TRAE_CONTEXT_OUTPUT_LIMIT="2000"
 export TRAE_HISTORY_PATH="$HOME/.trae/history.jsonl"   # 可选

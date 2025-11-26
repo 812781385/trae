@@ -30,9 +30,9 @@ pip3 install -e .
 ### 使用环境变量（推荐）
 
 ```bash
-export TRAE_API_KEY="sk-your-openai-api-key"
-export TRAE_PROVIDER="openai"  # 可选: openai, anthropic, qwen/dashscope, local
-export TRAE_MODEL="gpt-3.5-turbo"  # 可选
+export TRAE_API_KEY="sk-xxx"
+export TRAE_PROVIDER="qwen"  # 可选: openai, anthropic, qwen/dashscope, local
+export TRAE_MODEL="qwen3-max"  # 可选
 export TRAE_CONTEXT_WINDOW="50"  # 可选: 上下文条数
 export TRAE_CONTEXT_OUTPUT_LIMIT="2000"  # 可选: 单条上下文字数限制
 ```
