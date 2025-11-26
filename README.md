@@ -6,6 +6,8 @@
 
 > 想快速体验？参见 [`QUICKSTART.md`](QUICKSTART.md)。需要了解打包流程？参见 [`BUILD.md`](BUILD.md)。Looking for English docs? Read [`README.en.md`](README.en.md)。
 
+![Trae banner](assets/banner.png)
+
 ---
 
 ## 目录
